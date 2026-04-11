@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .register-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 420px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .input-group {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      font-size: 12px;
+      color: #2e7d32;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-color: #2e7d32;
+    }
+
+    .checkbox {
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .checkbox input {
+      margin-right: 5px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #256628;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+
+    .login-link a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="register-box">
+
+    <h2>Registro</h2>
+
+    <form id="form-registro">
+
+      <!-- FILA 1 -->
+      <div class="form-row">
+        <div class="input-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre" required>
+        </div>
+
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" placeholder="Correo" required>
+        </div>
+      </div>
+
+      <!-- FILA 2 -->
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input type="password" placeholder="Contraseña" required>
+      </div>
+
+      <!-- CHECKBOX -->
+      <div class="checkbox">
+        <input type="checkbox" required>
+        He leído y acepto los términos y condiciones
+      </div>
+
+      <!-- BOTÓN -->
+      <button class="btn">Registrar</button>
+
+    </form>
+
+    <div class="login-link">
+      ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
