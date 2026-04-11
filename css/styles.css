@@ -480,3 +480,103 @@ footer ul li a:hover {
     padding: 2rem 1.2rem;
   }
 }
+
+/*SECCIÓN CONTACTO*/
+.contacto-container {
+  max-width: 800px;
+  margin: 5rem auto;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.contacto-titulo-grande {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem; 
+  color: var(--texto);
+  margin-bottom: 3rem;
+  text-transform: none; 
+}
+
+.form-contacto-estilo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.input-bloque-verde {
+  width: 100%;
+  background-color: var(--verde);
+  color: var(--blanco);
+  border: none;
+  padding: 2rem 2.5rem; 
+  font-size: 1.3rem; 
+  font-family: 'Open Sans', sans-serif;
+  border-radius: var(--radio);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-bloque-verde::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.input-bloque-verde:focus {
+  background-color: var(--verde-claro);
+  transform: translateY(-2px);
+}
+
+textarea.input-bloque-verde {
+  min-height: 250px;
+  resize: none;
+}
+
+.btn-submit-contacto {
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 1rem;
+}
+
+.btn-submit-contacto:hover {
+  background-color: var(--verde-oscuro);
+  filter: brightness(1.1);
+}
+/*BUSCADOR*/
+.contenedor-busqueda {
+  display: flex; 
+  gap: 1rem; 
+  flex-wrap: wrap; 
+  background-color: var(--crema); 
+  padding: 1.5rem; 
+  border-radius: var(--radio);
+}
+
+.input-filtro {
+  flex: 2; 
+  padding: 0.8rem 1.2rem; 
+  border: 1px solid #ccc; 
+  border-radius: var(--radio); 
+  min-width: 200px;
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+}
+
+.select-filtro {
+  flex: 1; 
+  padding: 0.8rem; 
+  border: 1px solid #ccc; 
+  border-radius: var(--radio); 
+  min-width: 150px;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.input-filtro:focus, .select-filtro:focus {
+  border-color: var(--verde);
+}
