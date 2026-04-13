@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle del curso – EduCatálogo</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .detalle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 1.5rem;
+    }
+
+    .detalle-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background-color: var(--crema);
+      border-radius: var(--radio);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      border: 1px solid #ebebeb;
+    }
+
+    .detalle-categoria {
+      display: inline-block;
+      background-color: var(--verde);
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+
+    .detalle-info h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--texto);
+    }
+
+    .detalle-desc {
+      color: var(--texto-suave);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .detalle-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      background-color: var(--crema);
+      padding: 1.2rem;
+      border-radius: var(--radio);
+    }
+
+    .detalle-meta-item {
+      font-size: 0.88rem;
+      color: var(--texto-suave);
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .detalle-meta-item strong { color: var(--texto); }
+
+    .detalle-acciones {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-fav-detalle {
+      padding: 0.65rem 1.6rem;
+      border-radius: var(--radio);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: 2px solid var(--verde);
+      background: transparent;
+      color: var(--verde);
+      transition: all 0.2s;
+    }
+
+    .btn-fav-detalle:hover,
+    .btn-fav-detalle.activo {
+      background-color: var(--verde);
+      color: white;
+    }
+
+    .volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--verde);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 2rem;
+      transition: opacity 0.2s;
+    }
+
+    .volver:hover { opacity: 0.7; }
+
+    .relacionados {
+      background-color: var(--crema);
+      width: 100%;
+      padding: 3rem 0;
+      margin-top: 3rem;
+    }
+
+    .no-encontrado {
+      text-align: center;
+      padding: 5rem 2rem;
+      color: var(--texto-suave);
+    }
+
+    .no-encontrado .icono { font-size: 3.5rem; margin-bottom: 1rem; }
+
+    .no-encontrado h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--texto);
+    }
+
+    @media (max-width: 768px) {
+      .detalle-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">LOGO</a>
+    <a href="index.html">HOME</a>
+    <a href="cursos.html">CURSOS</a>
+    <a href="favoritos.html" class="nav-badge-wrap">
+      FAVORITOS
+      <span class="badge" id="badge-fav" style="display:none">0</span>
+    </a>
+    <a href="login.html">USUARIO</a>
+  </nav>
+
+  <main>
+    <div class="seccion">
+      <a href="cursos.html" class="volver">← Volver al catálogo</a>
+      <div id="contenido-detalle"></div>
+      <div class="no-encontrado" id="no-encontrado" style="display:none">
+        <div class="icono">😕</div>
+        <h3>Curso no encontrado</h3>
+        <p>El curso que buscas no existe.</p>
+        <a href="cursos.html" class="btn btn-verde" style="margin-top:1rem; display:inline-block;">Ver catálogo</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="relacionados" id="seccion-relacionados" style="display:none">
+    <div class="seccion" style="padding-top:0; padding-bottom:0">
+      <h2 class="seccion-titulo">También te puede interesar</h2>
+      <div class="grid-cursos" id="grid-relacionados"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">EduCatálogo</div>
+        <p class="footer-desc">
+          Plataforma de cursos digitales para potenciar tus habilidades en tecnología, arte, finanzas y mucho más.
+        </p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="favoritos.html">Favoritos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Categorías</h4>
+        <ul>
+          <li><a href="cursos.html">Tecnología</a></li>
+          <li><a href="cursos.html">Arte</a></li>
+          <li><a href="cursos.html">Finanzas</a></li>
+          <li><a href="cursos.html">Marketing</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copy">
+      © 2026 EduCatálogo · Politécnico Grancolombiano · Subgrupo 23
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    function toggleFavDetalle(id) {
+      const agrego = toggleFavorito(id);
+      const btn = document.getElementById('btn-fav-detalle');
+      btn.textContent = agrego ? '❤️ En favoritos' : '♡ Agregar a favoritos';
+      btn.classList.toggle('activo', agrego);
+      mostrarToast(agrego ? '❤️ Agregado a favoritos' : '🗑️ Eliminado de favoritos');
+      actualizarBadge();
+    }
+
+    (async () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const curso = await getCursoById(id);
+
+      if (!curso) {
+        document.getElementById('no-encontrado').style.display = 'block';
+        return;
+      }
+
+      document.title = `${curso.nombre} – EduCatálogo`;
+      const fav = esFavorito(curso.id);
+
+      document.getElementById('contenido-detalle').innerHTML = `
+        <div class="detalle-grid">
+          <div class="detalle-img">
+            <span>${curso.emoji}</span>
+          </div>
+          <div class="detalle-info">
+            <span class="detalle-categoria">${curso.categoria}</span>
+            <h1>${curso.nombre}</h1>
+            <p class="detalle-desc">${curso.descripcionLarga}</p>
+            <div class="detalle-meta">
+              <div class="detalle-meta-item">⏱ <strong>Duración:</strong> ${curso.duracion}</div>
+              <div class="detalle-meta-item">📶 <strong>Nivel:</strong> ${curso.nivel}</div>
+              <div class="detalle-meta-item">👩‍🏫 <strong>Instructor:</strong> ${curso.instructor}</div>
+            </div>
+            <div class="detalle-acciones">
+              <a href="contacto.html" class="btn btn-verde">Inscribirme</a>
+              <button
+                class="btn-fav-detalle ${fav ? 'activo' : ''}"
+                id="btn-fav-detalle"
+                onclick="toggleFavDetalle(${curso.id})"
+              >
+                ${fav ? '❤️ En favoritos' : '♡ Agregar a favoritos'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const todos = await getCursos();
+      const relacionados = todos
+        .filter(c => c.categoria === curso.categoria && c.id !== curso.id)
+        .slice(0, 3);
+
+      if (relacionados.length > 0) {
+        document.getElementById('seccion-relacionados').style.display = 'block';
+        document.getElementById('grid-relacionados').innerHTML = relacionados.map(crearCard).join('');
+      }
+    })();
+  </script>
+
+</body>
+</html>
