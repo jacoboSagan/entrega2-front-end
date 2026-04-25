@@ -1,0 +1,10 @@
+<nav>
+  <a routerLink="/" class="nav-logo">EduCatálogo</a>
+  <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">HOME</a>
+  <a routerLink="/cursos" routerLinkActive="activo">CURSOS</a>
+  <a routerLink="/favoritos" class="nav-badge-wrap" routerLinkActive="activo">
+    FAVORITOS
+    <span class="badge" id="badge-fav" [style.display]="cantidadFavoritos > 0 ? 'flex' : 'none'">{{ cantidadFavoritos }}</span>
+  </a>
+  <a routerLink="/login" routerLinkActive="activo">USUARIO</a>
+</nav>

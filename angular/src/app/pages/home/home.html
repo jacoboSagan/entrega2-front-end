@@ -1,0 +1,46 @@
+<section class="hero">
+  <div class="hero-texto">
+    <h1>Explora cientos<br>de cursos!</h1>
+    <p>Mientras fortaleces tus habilidades.</p>
+    <a routerLink="/cursos" class="btn-hero">Inicia ahora</a>
+    <a routerLink="/contacto" class="link-contacto">Contáctanos</a>
+  </div>
+  <div class="hero-imagen">
+    <img src="estudiante.png" alt="Estudiante con libros y mochila" />
+  </div>
+</section>
+
+<div class="seccion-crema">
+  <div class="seccion">
+    <h2 class="seccion-titulo">Populares</h2>
+    <div class="grid-cursos">
+      <div class="card" *ngFor="let curso of cursosPopulares">
+        <div class="card-img">
+          <span>{{ curso.emoji }}</span>
+          <a [routerLink]="['/detalle', curso.id]" class="card-revisar">Revisar</a>
+        </div>
+        <div class="card-body">
+          <div class="card-nombre">{{ curso.nombre }}</div>
+          <div class="card-desc">{{ curso.descripcion }}</div>
+          <div class="card-footer">
+            <a [routerLink]="['/detalle', curso.id]" class="btn btn-verde btn-sm" style="flex:1; text-align:center;">Ver más</a>
+            <button class="btn-fav" [class.activo]="esFavorito(curso.id)" (click)="toggleFav(curso.id)">♥</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding: 3.5rem 2rem; text-align: center; background: var(--blanco);">
+  <h2 style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.5rem; text-transform:uppercase; margin-bottom:0.8rem;">
+    ¿Listo para aprender algo nuevo?
+  </h2>
+  <p style="color: var(--texto-suave); margin-bottom: 1.8rem; max-width: 480px; margin-left: auto; margin-right: auto; font-size: 0.95rem;">
+    Explora nuestro catálogo completo y encuentra el curso que impulse tu carrera o tu pasión.
+  </p>
+  <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a routerLink="/cursos" class="btn btn-verde">Ver todos los cursos</a>
+    <a routerLink="/contacto" class="btn btn-outline">Contáctanos</a>
+  </div>
+</div>

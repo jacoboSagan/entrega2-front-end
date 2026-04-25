@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "nombre": "Storytelling Digital",
+    "categoria": "Creatividad",
+    "descripcion": "Aprende a construir narrativas que conectan con tu audiencia usando técnicas de escritura creativa y comunicación visual.",
+    "descripcionLarga": "Este curso te llevará por los fundamentos del storytelling aplicado a entornos digitales. Explorarás cómo estructurar una historia, qué elementos emocionales generan mayor impacto y cómo adaptar el mensaje a distintas plataformas. Aprenderás desde los arcos narrativos clásicos hasta técnicas modernas de contenido audiovisual.",
+    "emoji": "✍️",
+    "duracion": "8 semanas",
+    "nivel": "Principiante",
+    "instructor": "Andrea Morales"
+  },
+  {
+    "id": 2,
+    "nombre": "Consumo de APIs REST",
+    "categoria": "Tecnología",
+    "descripcion": "Domina la integración de APIs RESTful con JavaScript, aprende a manejar peticiones HTTP y a procesar datos JSON de manera eficiente.",
+    "descripcionLarga": "Una guía práctica para consumir APIs en proyectos web. Desde los conceptos básicos de HTTP (GET, POST, PUT, DELETE) hasta el manejo de autenticación con tokens JWT. Trabajarás con fetch, axios y aprenderás a manejar errores de forma robusta en aplicaciones reales.",
+    "emoji": "🔌",
+    "duracion": "6 semanas",
+    "nivel": "Intermedio",
+    "instructor": "Carlos Jiménez"
+  },
+  {
+    "id": 3,
+    "nombre": "Acuarela Básica",
+    "categoria": "Arte",
+    "descripcion": "Descubre el mundo de la acuarela con técnicas esenciales de pintura, control del agua y mezcla de colores para crear obras únicas.",
+    "descripcionLarga": "Un recorrido desde cero por la técnica de la acuarela. Aprenderás a preparar tu paleta, controlar la humedad del papel, trabajar con capas y transparencias, y crear fondos atmosféricos. El curso incluye ejercicios guiados de flores, paisajes y retratos abstractos.",
+    "emoji": "🎨",
+    "duracion": "5 semanas",
+    "nivel": "Principiante",
+    "instructor": "Lucía Pedraza"
+  },
+  {
+    "id": 4,
+    "nombre": "Finanzas Personales",
+    "categoria": "Finanzas",
+    "descripcion": "Toma el control de tu dinero: aprende presupuesto, ahorro, inversión básica y cómo construir un fondo de emergencia sólido.",
+    "descripcionLarga": "Un curso práctico que te ayuda a entender tus finanzas desde cero. Aprenderás a crear un presupuesto mensual realista, identificar gastos innecesarios, establecer metas de ahorro y dar tus primeros pasos en inversión con conceptos como fondos de índice, CDTs y diversificación.",
+    "emoji": "💰",
+    "duracion": "4 semanas",
+    "nivel": "Principiante",
+    "instructor": "Sebastián Torres"
+  },
+  {
+    "id": 5,
+    "nombre": "Fotografía con Celular",
+    "categoria": "Arte",
+    "descripcion": "Saca el máximo partido a la cámara de tu celular con técnicas de composición, iluminación y edición profesional.",
+    "descripcionLarga": "No necesitas una cámara cara para hacer fotos increíbles. Este curso te enseñará regla de los tercios, tipos de luz natural, enfoque manual, modo retrato y edición con Lightroom Mobile. Ideal para creadores de contenido, emprendedores y viajeros.",
+    "emoji": "📸",
+    "duracion": "3 semanas",
+    "nivel": "Principiante",
+    "instructor": "Valeria Gómez"
+  },
+  {
+    "id": 6,
+    "nombre": "Desarrollo en Angular",
+    "categoria": "Tecnología",
+    "descripcion": "Construye aplicaciones web robustas con Angular: componentes, servicios, routing y manejo de estado.",
+    "descripcionLarga": "Aprende Angular desde sus fundamentos hasta conceptos avanzados. El curso cubre la CLI de Angular, estructura de componentes, binding de datos, directivas, pipes, servicios e inyección de dependencias. Terminarás construyendo una aplicación completa con autenticación y consumo de API.",
+    "emoji": "⚙️",
+    "duracion": "10 semanas",
+    "nivel": "Avanzado",
+    "instructor": "Miguel Ríos"
+  },
+  {
+    "id": 7,
+    "nombre": "Marketing en Redes",
+    "categoria": "Marketing",
+    "descripcion": "Estrategias reales para hacer crecer tu marca en Instagram, TikTok y LinkedIn con contenido orgánico y pagado.",
+    "descripcionLarga": "Un curso orientado a resultados sobre cómo construir presencia digital para marcas personales o empresas. Aprenderás a definir tu buyer persona, crear un calendario editorial, analizar métricas y diseñar campañas de pauta con presupuestos ajustados.",
+    "emoji": "📣",
+    "duracion": "6 semanas",
+    "nivel": "Intermedio",
+    "instructor": "Daniela Fuentes"
+  },
+  {
+    "id": 8,
+    "nombre": "Excel para Analistas",
+    "categoria": "Tecnología",
+    "descripcion": "Maneja tablas dinámicas, funciones avanzadas y dashboards interactivos para transformar datos en decisiones.",
+    "descripcionLarga": "Diseñado para profesionales que necesitan dominar Excel en el trabajo. Aprenderás BUSCARV, INDICE-COINCIDIR, tablas dinámicas, gráficos combinados, validación de datos y construcción de dashboards. Al final crearás un reporte ejecutivo completo con datos reales.",
+    "emoji": "📊",
+    "duracion": "5 semanas",
+    "nivel": "Intermedio",
+    "instructor": "Felipe Castro"
+  }
+]
