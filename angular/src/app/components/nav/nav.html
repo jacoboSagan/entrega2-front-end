@@ -1,10 +1,19 @@
 <nav>
   <a routerLink="/" class="nav-logo">EduCatálogo</a>
-  <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">HOME</a>
-  <a routerLink="/cursos" routerLinkActive="activo">CURSOS</a>
-  <a routerLink="/favoritos" class="nav-badge-wrap" routerLinkActive="activo">
-    FAVORITOS
-    <span class="badge" id="badge-fav" [style.display]="cantidadFavoritos > 0 ? 'flex' : 'none'">{{ cantidadFavoritos }}</span>
-  </a>
-  <a routerLink="/login" routerLinkActive="activo">USUARIO</a>
+  
+  <button class="nav-toggle" (click)="menuAbierto = !menuAbierto">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" [class.abierto]="menuAbierto">
+    <a routerLink="/" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}" (click)="menuAbierto = false">HOME</a>
+    <a routerLink="/cursos" routerLinkActive="activo" (click)="menuAbierto = false">CURSOS</a>
+    <a routerLink="/favoritos" class="nav-badge-wrap" routerLinkActive="activo" (click)="menuAbierto = false">
+      FAVORITOS
+      <span class="badge" [style.display]="cantidadFavoritos > 0 ? 'flex' : 'none'">{{ cantidadFavoritos }}</span>
+    </a>
+    <a routerLink="/login" routerLinkActive="activo" (click)="menuAbierto = false">USUARIO</a>
+  </div>
 </nav>

@@ -12,7 +12,8 @@ import { CursosService } from '../../services/cursos';
 })
 export class Nav implements OnInit {
   cantidadFavoritos = 0;
-
+  menuAbierto = false;
+  
   constructor(private cursosService: CursosService) {}
 
   ngOnInit() {
