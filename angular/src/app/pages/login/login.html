@@ -1,1 +1,127 @@
-<p>login works!</p>
+<div class="hero-secundario">
+  <h1>Usuario</h1>
+  <p>Inicia sesión o crea una cuenta</p>
+</div>
+
+<div class="seccion" style="max-width:520px">
+
+  <!-- Login -->
+  <div *ngIf="vista === 'login'" class="form-wrap">
+    <h2 class="form-titulo">Bienvenido</h2>
+    <p class="form-subtitulo">Inicia sesión para acceder a tu cuenta.</p>
+
+    <div class="alerta exito" *ngIf="loginExitoso">
+      ✅ Sesión iniciada correctamente.
+    </div>
+    <div class="alerta error-alerta" *ngIf="loginError">
+      ❌ Corrige los errores del formulario.
+    </div>
+
+    <div class="campo" [class.invalido]="erroresLogin.correo">
+      <label>Correo electrónico *</label>
+      <input type="email" [(ngModel)]="loginForm.correo" placeholder="correo@ejemplo.com" />
+      <div class="msg-error">Ingresa un correo válido.</div>
+    </div>
+
+    <div class="campo" [class.invalido]="erroresLogin.password">
+      <label>Contraseña *</label>
+      <input type="password" [(ngModel)]="loginForm.password" placeholder="••••••••" />
+      <div class="msg-error">La contraseña es obligatoria.</div>
+    </div>
+
+    <button class="btn btn-verde btn-block" (click)="iniciarSesion()">Iniciar sesión</button>
+
+    <div class="divisor">o</div>
+
+    <button class="btn-google" onclick="alert('Integración con Google no disponible en modo demo')">
+      <svg width="18" height="18" viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.5 0 6.5 1.2 8.9 3.2l6.6-6.6C35.5 2.4 30.1 0 24 0 14.8 0 6.9 5.4 3 13.3l7.8 6C12.6 13.1 17.9 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17z"/>
+        <path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7L2.5 13.3A23.9 23.9 0 0 0 0 24c0 3.8.9 7.4 2.5 10.6l8.3-5.9z"/>
+        <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.5l-7.5-5.8c-2 1.3-4.6 2.1-7.4 2.1-6.1 0-11.3-4.1-13.2-9.8l-7.8 6C6.9 42.6 14.8 48 24 48z"/>
+      </svg>
+      Regístrate con Google
+    </button>
+
+    <p style="text-align:center; margin-top:1.2rem; font-size:0.88rem; color:var(--texto-suave);">
+      ¿No tienes cuenta?
+      <button (click)="vista = 'registro'" style="background:none; border:none; color:var(--verde); font-weight:600; cursor:pointer; font-size:0.88rem;">
+        Regístrate aquí
+      </button>
+    </p>
+  </div>
+
+  <!-- Registro -->
+  <div *ngIf="vista === 'registro'" class="form-wrap">
+    <h2 class="form-titulo">Crear cuenta</h2>
+    <p class="form-subtitulo">Únete a EduCatálogo de forma gratuita.</p>
+
+    <div class="alerta exito" *ngIf="registroExitoso">
+      ✅ Cuenta creada exitosamente.
+    </div>
+    <div class="alerta error-alerta" *ngIf="registroError">
+      ❌ Corrige los errores antes de continuar.
+    </div>
+
+    <div class="campo" [class.invalido]="erroresRegistro.nombre">
+      <label>Nombre completo *</label>
+      <input type="text" [(ngModel)]="registroForm.nombre" placeholder="Tu nombre" />
+      <div class="msg-error">El nombre es obligatorio.</div>
+    </div>
+
+    <div class="campo" [class.invalido]="erroresRegistro.correo">
+      <label>Correo electrónico *</label>
+      <input type="email" [(ngModel)]="registroForm.correo" placeholder="correo@ejemplo.com" />
+      <div class="msg-error">Ingresa un correo válido.</div>
+    </div>
+
+    <div class="campo" [class.invalido]="erroresRegistro.password">
+      <label>Contraseña *</label>
+      <input type="password" [(ngModel)]="registroForm.password" placeholder="Mínimo 6 caracteres" />
+      <div class="msg-error">La contraseña debe tener al menos 6 caracteres.</div>
+    </div>
+
+    <div class="campo" [class.invalido]="erroresRegistro.password2">
+      <label>Confirmar contraseña *</label>
+      <input type="password" [(ngModel)]="registroForm.password2" placeholder="Repite tu contraseña" />
+      <div class="msg-error">Las contraseñas no coinciden.</div>
+    </div>
+
+    <button class="btn btn-verde btn-block" (click)="registrar()">Crear cuenta</button>
+
+    <div class="divisor">o</div>
+
+    <button class="btn-google" onclick="alert('Integración con Google no disponible en modo demo')">
+      <svg width="18" height="18" viewBox="0 0 48 48">
+        <path fill="#EA4335" d="M24 9.5c3.5 0 6.5 1.2 8.9 3.2l6.6-6.6C35.5 2.4 30.1 0 24 0 14.8 0 6.9 5.4 3 13.3l7.8 6C12.6 13.1 17.9 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17z"/>
+        <path fill="#FBBC05" d="M10.8 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7L2.5 13.3A23.9 23.9 0 0 0 0 24c0 3.8.9 7.4 2.5 10.6l8.3-5.9z"/>
+        <path fill="#34A853" d="M24 48c6.1 0 11.2-2 14.9-5.5l-7.5-5.8c-2 1.3-4.6 2.1-7.4 2.1-6.1 0-11.3-4.1-13.2-9.8l-7.8 6C6.9 42.6 14.8 48 24 48z"/>
+      </svg>
+      Regístrate con Google
+    </button>
+
+    <p style="text-align:center; margin-top:1.2rem; font-size:0.88rem; color:var(--texto-suave);">
+      ¿Ya tienes cuenta?
+      <button (click)="vista = 'login'" style="background:none; border:none; color:var(--verde); font-weight:600; cursor:pointer; font-size:0.88rem;">
+        Inicia sesión
+      </button>
+    </p>
+  </div>
+
+  <!-- Perfil -->
+  <div *ngIf="vista === 'perfil'" class="form-wrap" style="text-align:center;">
+    <div style="font-size:4rem; margin-bottom:1rem;">👤</div>
+    <h2 class="form-titulo">Hola, {{ usuario?.nombre }}</h2>
+    <p class="form-subtitulo">{{ usuario?.correo }}</p>
+    <div style="background:var(--crema); border-radius:var(--radio); padding:1rem; margin:1.5rem 0; text-align:left;">
+      <p style="font-size:0.88rem; color:var(--texto-suave); margin-bottom:0.3rem;">Cursos en favoritos</p>
+      <p style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.5rem;">{{ cantidadFavoritos }}</p>
+    </div>
+    <div style="display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+      <a routerLink="/favoritos" class="btn btn-verde">Ver mis favoritos</a>
+      <button class="btn btn-outline" (click)="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </div>
+
+</div>

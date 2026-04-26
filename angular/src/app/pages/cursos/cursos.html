@@ -1,1 +1,57 @@
-<p>cursos works!</p>
+<div class="hero-secundario">
+  <h1>Catálogo de cursos</h1>
+  <p>Encuentra tu próximo aprendizaje entre todas nuestras áreas</p>
+</div>
+
+<div class="seccion">
+  <input
+    type="search"
+    class="buscador"
+    placeholder="🔍  Buscar curso por nombre o categoría..."
+    [(ngModel)]="busqueda"
+    (input)="filtrar()"
+  />
+
+  <div class="filtros">
+    <button
+      class="filtro-btn"
+      *ngFor="let cat of categorias"
+      [class.activo]="categoriaActiva === cat"
+      (click)="seleccionarCategoria(cat)"
+    >
+      {{ cat }}
+    </button>
+  </div>
+
+  <p style="font-size:0.88rem; color:var(--texto-suave); margin-bottom:1rem;">
+    {{ cursosFiltrados.length }} curso{{ cursosFiltrados.length !== 1 ? 's' : '' }} encontrado{{ cursosFiltrados.length !== 1 ? 's' : '' }}
+  </p>
+
+  <div class="grid-cursos">
+    <div class="card" *ngFor="let curso of cursosFiltrados">
+      <div class="card-img">
+        <span>{{ curso.emoji }}</span>
+        <a [routerLink]="['/detalle', curso.id]" class="card-revisar">Revisar</a>
+      </div>
+      <div class="card-body">
+        <div class="card-nombre">{{ curso.nombre }}</div>
+        <div class="card-desc">{{ curso.descripcion }}</div>
+        <div style="display:flex; gap:0.4rem; font-size:0.78rem; color:var(--texto-suave); margin-bottom:0.8rem;">
+          <span>⏱ {{ curso.duracion }}</span>
+          <span>·</span>
+          <span>📶 {{ curso.nivel }}</span>
+        </div>
+        <div class="card-footer">
+          <a [routerLink]="['/detalle', curso.id]" class="btn btn-verde btn-sm" style="flex:1; text-align:center;">Revisar</a>
+          <button class="btn-fav" [class.activo]="esFavorito(curso.id)" (click)="toggleFav(curso.id)">♥</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="cursosFiltrados.length === 0" style="text-align:center; padding:4rem 2rem; color:var(--texto-suave);">
+    <div style="font-size:3rem; margin-bottom:1rem;">🔍</div>
+    <h3 style="font-family:'Montserrat',sans-serif; font-weight:700; margin-bottom:0.5rem;">Sin resultados</h3>
+    <p>Intenta con otro término o categoría.</p>
+  </div>
+</div>

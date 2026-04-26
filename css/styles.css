@@ -580,3 +580,23 @@ textarea.input-bloque-verde {
 .input-filtro:focus, .select-filtro:focus {
   border-color: var(--verde);
 }
+
+.hero-secundario {
+  background-color: var(--verde);
+  color: var(--blanco);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.hero-secundario h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.hero-secundario p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}

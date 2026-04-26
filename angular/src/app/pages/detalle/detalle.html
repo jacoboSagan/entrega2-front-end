@@ -1,1 +1,52 @@
-<p>detalle works!</p>
+<div class="seccion">
+  <a routerLink="/cursos" class="volver">← Volver al catálogo</a>
+
+  <div *ngIf="curso">
+    <div class="detalle-grid">
+      <div class="detalle-img">
+        <span>{{ curso.emoji }}</span>
+      </div>
+      <div class="detalle-info">
+        <span class="detalle-categoria">{{ curso.categoria }}</span>
+        <h1>{{ curso.nombre }}</h1>
+        <p class="detalle-desc">{{ curso.descripcionLarga }}</p>
+        <div class="detalle-meta">
+          <div class="detalle-meta-item">⏱ <strong>Duración:</strong> {{ curso.duracion }}</div>
+          <div class="detalle-meta-item">📶 <strong>Nivel:</strong> {{ curso.nivel }}</div>
+          <div class="detalle-meta-item">👩‍🏫 <strong>Instructor:</strong> {{ curso.instructor }}</div>
+        </div>
+        <div class="detalle-acciones">
+          <a routerLink="/contacto" class="btn btn-verde">Inscribirme</a>
+          <button class="btn-fav-detalle" [class.activo]="esFavorito()" (click)="toggleFav()">
+            {{ esFavorito() ? '❤️ En favoritos' : '♡ Agregar a favoritos' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!curso" style="text-align:center; padding:5rem 2rem; color:var(--texto-suave);">
+    <div style="font-size:3.5rem; margin-bottom:1rem;">😕</div>
+    <h3 style="font-family:'Montserrat',sans-serif; font-weight:700; margin-bottom:0.5rem;">Curso no encontrado</h3>
+    <a routerLink="/cursos" class="btn btn-verde" style="margin-top:1rem; display:inline-block;">Ver catálogo</a>
+  </div>
+
+  <div *ngIf="relacionados.length > 0" style="background:var(--crema); padding:3rem 2rem; margin-top:3rem; border-radius:var(--radio);">
+  <h2 class="seccion-titulo">También te puede interesar</h2>
+  <div class="grid-cursos">
+    <div class="card" *ngFor="let r of relacionados">
+      <div class="card-img">
+        <span>{{ r.emoji }}</span>
+        <a [routerLink]="['/detalle', r.id]" class="card-revisar">Revisar</a>
+      </div>
+      <div class="card-body">
+        <div class="card-nombre">{{ r.nombre }}</div>
+        <div class="card-desc">{{ r.descripcion }}</div>
+        <div class="card-footer">
+          <a [routerLink]="['/detalle', r.id]" class="btn btn-verde btn-sm" style="flex:1; text-align:center;">Ver más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

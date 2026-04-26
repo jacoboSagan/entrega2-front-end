@@ -1,1 +1,50 @@
-<p>contacto works!</p>
+<div class="hero-secundario">
+  <h1>Contacto</h1>
+  <p>¿Tienes dudas o quieres saber más? Escríbenos.</p>
+</div>
+
+<div class="seccion" style="max-width:700px">
+  <div class="form-wrap">
+    <h2 class="form-titulo">Envíanos un mensaje</h2>
+    <p class="form-subtitulo">Te respondemos en menos de 24 horas hábiles.</p>
+
+    <div class="alerta exito" [class.visible]="enviado">
+      ✅ ¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.
+    </div>
+    <div class="alerta error-alerta" [class.visible]="hayErrores">
+      ❌ Por favor corrige los errores antes de continuar.
+    </div>
+
+    <div class="campo" [class.invalido]="errores.nombre">
+      <label>Nombre completo *</label>
+      <input type="text" [(ngModel)]="form.nombre" placeholder="Tu nombre" />
+      <div class="msg-error">El nombre es obligatorio.</div>
+    </div>
+
+    <div class="campo" [class.invalido]="errores.correo">
+      <label>Correo electrónico *</label>
+      <input type="email" [(ngModel)]="form.correo" placeholder="correo@ejemplo.com" />
+      <div class="msg-error">Ingresa un correo válido.</div>
+    </div>
+
+    <div class="campo" [class.invalido]="errores.asunto">
+      <label>Asunto *</label>
+      <select [(ngModel)]="form.asunto">
+        <option value="">Selecciona un asunto…</option>
+        <option>Información sobre cursos</option>
+        <option>Soporte técnico</option>
+        <option>Pagos y facturación</option>
+        <option>Otro</option>
+      </select>
+      <div class="msg-error">Selecciona un asunto.</div>
+    </div>
+
+    <div class="campo" [class.invalido]="errores.mensaje">
+      <label>Mensaje *</label>
+      <textarea [(ngModel)]="form.mensaje" placeholder="Escribe tu mensaje aquí…"></textarea>
+      <div class="msg-error">El mensaje debe tener al menos 10 caracteres.</div>
+    </div>
+
+    <button class="btn btn-verde btn-block" (click)="enviar()">Enviar mensaje</button>
+  </div>
+</div>
