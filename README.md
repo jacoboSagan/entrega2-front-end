@@ -1,4 +1,10 @@
 EduCatálogo
+
+# EduCatálogo
+
+**Demo Angular:** https://taupe-mandazi-1d3e34.netlify.app
+**Repositorio:** https://github.com/jacoboSagan/entrega2-front-end
+
 Aplicación web tipo catálogo desarrollada como proyecto del módulo de Front End en el Politécnico Grancolombiano. Permite a los usuarios explorar cursos digitales en áreas como tecnología, arte, finanzas y marketing.
 
 ¿De qué trata?
@@ -17,6 +23,18 @@ Tecnologías utilizadas
 -JavaScript ES6+ (fetch API, localStorage, manipulación del DOM)
 -JSON (fuente de datos de los cursos)
 -Google Fonts (Montserrat + Open Sans)
+
+## Versión Angular
+
+El proyecto también cuenta con una versión migrada a Angular 21 ubicada en la carpeta `angular/`. Esta versión está desplegada en:
+
+**https://taupe-mandazi-1d3e34.netlify.app**
+
+Para correrla localmente:
+1. Entra a la carpeta `angular/`
+2. Ejecuta `npm install`
+3. Ejecuta `ng serve`
+4. Abre `http://localhost:4200`
 
 Institución
 Politécnico Grancolombiano · Subgrupo 23 · 2026
